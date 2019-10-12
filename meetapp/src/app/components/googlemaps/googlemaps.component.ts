@@ -16,7 +16,7 @@ export class GooglemapsComponent implements OnInit {
 
   ngOnInit() {
     this.getData().then(response => {
-      this.data = response.users;
+      this.data = response.body.users;
     });
   }
 
@@ -29,12 +29,12 @@ export class GooglemapsComponent implements OnInit {
   }
 
   getData() {
-    return this.http.get(this.distanceServiceUrl, {
+    return this.http.get<any>(this.distanceServiceUrl, {
       headers: new HttpHeaders({
         'Access-Control-Allow-Origin' : '*'
       }),
       observe: 'response'}).toPromise().then(response => {
-        return response.body;
+        return response;
     });
   }
 }

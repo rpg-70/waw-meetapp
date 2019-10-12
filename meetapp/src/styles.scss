@@ -56,3 +56,26 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background:
 .nobg {
   background: none;
 }
+
+.mat-card.main-card {
+  border-bottom: 3px solid;
+  border-top: 3px solid;
+  border-color: $custom-yellow;
+}
+
+.call-to-action {
+  background: $custom-yellow;
+}
+.call-to-action .mat-button-wrapper {
+  color: black;
+}
+
+.sticky {
+ position: fixed;
+ width: 100%;
+ z-index: 1000;
+}
+
+.wawup-content {
+  padding-top: 60px;
+}

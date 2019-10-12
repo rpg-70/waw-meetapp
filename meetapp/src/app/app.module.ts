@@ -16,6 +16,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatBadgeModule } from '@angular/material/badge';
+import { GooglemapsComponent } from './components/googlemaps/googlemaps.component';
+import { AgmCoreModule } from '@agm/core';
+
 
 
 @NgModule({
@@ -24,11 +27,15 @@ import { MatBadgeModule } from '@angular/material/badge';
     AppBarComponent,
     EventsAcceleratorComponent,
     MyFriendsComponent,
-    MyEventsComponent
+    MyEventsComponent,
+    GooglemapsComponent
   ],
   imports: [
     BrowserModule,
     FlexLayoutModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBXO5Elyxvhmk7YtgfnVlusrSnkwuzqE0c'
+    }),
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSliderModule,

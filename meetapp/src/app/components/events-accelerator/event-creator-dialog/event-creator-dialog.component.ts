@@ -40,7 +40,9 @@ export class EventCreatorDialogComponent implements OnInit {
     });
   }
   saveEvent(){
-    console.log(this.mainInformation.get('name').value)
+    localStorage.setItem('new-event-main-info', JSON.stringify(this.mainInformation.value));
+    localStorage.setItem('new-event-participants', JSON.stringify(this.chooseParticipants.value));
+    localStorage.setItem('new-event-location', JSON.stringify(this.selectLocation.value));
   }
 
   

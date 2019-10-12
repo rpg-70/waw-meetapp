@@ -1,7 +1,7 @@
 <div class="w3-margin"><h2>My events:</h2></div>
 <div fxLayout="row wrap" fxLayoutGap="2rem" fxLayoutAlign="flex-start" class="my-events-container">
         <div *ngFor="let myEvent of myEvents">
-            <mat-card class="event-card" (click)="doStuff()">
+            <mat-card class="event-card">
                 <mat-card-header>
                     <!-- <div mat-card-avatar class="friend-image"></div> -->
                     <mat-card-title>{{myEvent.name}}</mat-card-title>

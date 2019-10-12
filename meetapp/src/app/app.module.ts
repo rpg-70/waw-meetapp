@@ -19,6 +19,10 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { GooglemapsComponent } from './components/googlemaps/googlemaps.component';
 import { AgmCoreModule } from '@agm/core';
 
+import { EventCreatorDialogComponent } from './components/events-accelerator/event-creator-dialog/event-creator-dialog.component';
+import { MatDialogModule, MatStepperModule, MatFormFieldModule } from '@angular/material';
+import { CdkStepperModule } from '@angular/cdk/stepper';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -27,6 +31,8 @@ import { AgmCoreModule } from '@agm/core';
     AppBarComponent,
     EventsAcceleratorComponent,
     MyFriendsComponent,
+    MyEventsComponent,
+    EventCreatorDialogComponent,
     MyEventsComponent,
     GooglemapsComponent
   ],
@@ -45,9 +51,17 @@ import { AgmCoreModule } from '@agm/core';
     MatIconModule,
     MatToolbarModule,
     MatButtonModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatDialogModule,
+    CdkStepperModule,
+    MatStepperModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule
+
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [EventCreatorDialogComponent]
 })
 export class AppModule { }

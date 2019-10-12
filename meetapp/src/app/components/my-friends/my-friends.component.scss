@@ -1,6 +1,6 @@
 .friend-card{
-    width: 300px;
-    margin-bottom: 2rem;
+    width: 260px;
+    margin-bottom: 1rem;
     cursor: pointer; 
     transition: all .2s ease-in-out; 
 }
@@ -8,8 +8,8 @@
     transform: scale(1.1); 
 }
 .my-friends-container{
-    align-items: center;
-    justify-content: center!important;
+    align-items: left;
+    justify-content: left!important;
 }
   
 .friend-image {

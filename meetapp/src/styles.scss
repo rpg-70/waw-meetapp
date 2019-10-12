@@ -79,3 +79,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background:
 .wawup-content {
   padding-top: 60px;
 }
+//#cdk-step-label-0-0 > div.mat-step-icon-state-edit.mat-step-icon > div > mat-icon
+.mat-step-icon-state-number.mat-step-icon, .mat-step-icon-state-edit.mat-step-icon{
+  background: $custom-primary
+}

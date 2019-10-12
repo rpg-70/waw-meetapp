@@ -21,4 +21,6 @@ export class EventsAcceleratorComponent implements OnInit {
     this.fileNameDialogRef = this.dialog.open(EventCreatorDialogComponent);   
   }
 
+  
+
 }

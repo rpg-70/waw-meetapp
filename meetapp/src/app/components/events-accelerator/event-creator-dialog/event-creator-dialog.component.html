@@ -4,13 +4,13 @@
         <mat-step [stepControl]="mainInformation">
             <form [formGroup]="mainInformation">
                 <ng-template matStepLabel>Main information about Your event</ng-template>
-                <input matInput placeholder="Name of the event.." formControlName="name" class="dialog-input">
+                <input matInput placeholder="Name of the event.." formControlName="name" class="w3-input dialog-input">
                 <textarea matInput placeholder="Description.." formControlName="description"
-                    class="dialog-input"></textarea>
+                    class="w3-input dialog-input"></textarea>
                 <input matInput placeholder="Search for location type by a keyword.." formControlName="location"
-                    class="dialog-input">
+                    class="w3-input dialog-input">
                 <div>
-                    <button mat-button matStepperNext>Next</button>
+                    <button mat-button matStepperNext class="call-to-action">Next</button>
                 </div>
             </form>
         </mat-step>
@@ -18,7 +18,7 @@
             <form [formGroup]="chooseParticipants" style="display:block">
                 <ng-template matStepLabel>Choose participants</ng-template>
                 <div>
-                    <input matInput placeholder="Search friends.." formControlName="searchFriends">
+                    <input matInput placeholder="Search friends.." formControlName="searchFriends" class="w3-input">
                 </div>
                 <div *ngFor="let friend of myFriends" style="display:inline-flex;text-align: center;">
                     <div style="padding: 1rem;">
@@ -27,35 +27,39 @@
                     </div>
                 </div>
                 <div>
-                    <button mat-button matStepperPrevious>Back</button>
-                    <button mat-button matStepperNext>Next</button>
+                    <button mat-button matStepperPrevious class="w3-margin-right">Back</button>
+                    <button mat-button matStepperNext class="call-to-action">Next</button>
                 </div>
             </form>
         </mat-step>
         <mat-step [stepControl]="selectLocation">
-                <form [formGroup]="selectLocation">
-                        <ng-template matStepLabel>Select location & time</ng-template>
-                        <div>
-                            <span>Date</span>
-                            <input matInput placeholder="DD:MM" formControlName="date">
-                            <input matInput placeholder="HH:MM" formContrlNoame="time">
-                        </div>
-                        <div>
-                            <span>Location</span>
-                            <input matInput placeholder="Set Your own.." formControlName="ownLocation">
-                            <input matInput placeholder="Discover places with WawUp" formControlName="discoverLocation">
-                        </div>
-                        <div>
-                            <button mat-button matStepperPrevious>Back</button>
-                            <button mat-button matStepperNext>Next</button>
-                        </div>
-                    </form>
-            </mat-step>
+            <form [formGroup]="selectLocation">
+                <ng-template matStepLabel>Select location & time</ng-template>
+                <div class="w3-margin-top">
+                    <label>Date</label>
+                    <input matInput placeholder="DD:MM" formControlName="date" class="w3-input">
+                </div>
+                <div class="w3-margin-top">
+                    <label>Time</label>
+                    <input matInput placeholder="HH:MM" formContrlNoame="time" class="w3-input">
+                </div>
+                <div class="w3-margin-top">
+                    <label>Location</label>
+                    <input matInput placeholder="Set Your own.." formControlName="ownLocation" class="w3-input">
+                    <input matInput placeholder="Discover places with WawUp" formControlName="discoverLocation"
+                        class="w3-input">
+                </div>
+                <div class="w3-margin-top">
+                    <button mat-button matStepperPrevious class="w3-margin-right">Back</button>
+                    <button mat-button matStepperNext class="call-to-action">Next</button>
+                </div>
+            </form>
+        </mat-step>
 
 
     </mat-vertical-stepper>
 </mat-dialog-content>
 <mat-dialog-actions>
-    <button mat-button (click)="saveEvent()">Add</button>
+    <button mat-button (click)="saveEvent()" class="call-to-action">Add</button>
     <button mat-button>Cancel</button>
 </mat-dialog-actions>

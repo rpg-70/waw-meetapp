@@ -1,8 +1,8 @@
+
 .event-card{
     min-width:auto;
-    width: 150px;
-    max-width: 400px;
-    margin-bottom: 2rem;
+    max-width: 300px;
+    margin-bottom: 1rem;
     cursor: pointer; 
     transition: all .2s ease-in-out; 
 }
@@ -10,11 +10,6 @@
     transform: scale(1.1); 
 }
 .my-events-container{
-    align-items: center;
-    justify-content: center!important;
-}
-  
-.event-image {
-    background-image: url('https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=imgres&cd=&cad=rja&uact=8&ved=2ahUKEwj08N_t4JblAhVl-SoKHfR7BzUQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.antyradio.pl%2FMuzyka%2FKoncerty%2FEnigma-zagra-pierwszy-raz-w-Polsce-w-2019-27308&psig=AOvVaw3-uSxRI505boB4z_auIojS&ust=1570970918403105');
-    background-size: cover;
+    align-items: left;
+    justify-content: left!important;
 }

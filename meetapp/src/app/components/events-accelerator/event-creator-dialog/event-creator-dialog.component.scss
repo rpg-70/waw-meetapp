@@ -1,0 +1,21 @@
+.dialog-input{
+    display:block;
+    margin:1.25rem;
+}
+.dialog-text-input{
+    width:200px;
+}
+.friend-photo {
+    display:block;
+    width:100px;
+    height: 100px;
+    cursor: pointer; 
+    transition: all .2s ease-in-out; 
+}
+.friend-photo:hover { 
+    transform: scale(1.1); 
+}
+.friend-name {
+    color:rgba(114, 114, 114, 0.795);
+    text-align:center;
+}

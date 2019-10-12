@@ -7,8 +7,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyEventsComponent implements OnInit {
   myEvents = [
-    {name: 'Koncert',surname: 'Torwar',photo: 'https://gfx.antyradio.pl/var/antyradio/storage/images/muzyka/koncerty/enigma-zagra-pierwszy-raz-w-polsce-w-2019-27308/1919440-1-pol-PL/Enigma-zagra-pierwszy-raz-w-Polsce-w-2019.-Zespol-zapowiedzial-7-koncertow_article.jpg',description: 'Fajny koncert!'},
-    {name: 'Integracja',surname: 'Pub Lolek',photo: 'https://www.horecabc.pl/wp-content/uploads/Piwo-barwa.jpg',description: 'Spotkajmy się :)'}
+    {
+      name: 'Classic movie night',
+      surname: 'Kinoteka',
+      photo: 'https://loremflickr.com/160/120/classic_film',
+      description: 'Good old "old" movies',
+      participants: 4, closed: false, datetime: '01/03/2019 18:00 - 20:00'
+    },
+    {
+      name: 'Library sightseeing',
+      surname: 'Biblioteka SGH',
+      photo: 'https://loremflickr.com/160/120/library',
+      description: 'Lets read!',
+      participants: 4, closed: false, datetime: '12/03/2019 13:00 - 20:00'
+    },
+    {
+      name: 'Clubbing! XD',
+      surname: 'Pub Lolek',
+      photo: 'https://loremflickr.com/160/120/party',
+      description: 'Party time!',
+      participants: 4, closed: false, datetime: '01/04/2019 18:00 - 19:00'
+    }
   ];
   constructor() { }
 

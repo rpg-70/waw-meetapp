@@ -27,7 +27,15 @@ export class MyEventsComponent implements OnInit {
       photo: 'https://loremflickr.com/160/120/party',
       description: 'Party time!',
       participants: 4, closed: false, datetime: '01/04/2019 18:00 - 19:00'
+    },
+    {
+      name: 'Confusing the cat',
+      surname: 'Metro Politechnika',
+      photo: 'https://thiscatdoesnotexist.com/',
+      description: 'Contest in cat confusing... Meow?',
+      datetime: '12/05/2019 12:00'
     }
+
   ];
   constructor() { }
 

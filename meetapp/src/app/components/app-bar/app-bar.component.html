@@ -1,1 +1,32 @@
-<p>app-bar works!</p>
+<mat-toolbar color="primary" class="meetapp appbar">
+    <span>WawUp!</span>
+
+    <!-- This fills the remaining space of the current row -->
+    <span class="example-fill-remaining-space"></span>
+
+    <span>
+        <button mat-icon-button [matMenuTriggerFor]="menu1" aria-label="Notifications">
+            <mat-icon matBadge="2" matBadgePosition="above after" matBadgeColor="warn">notifications_active</mat-icon>
+        </button>
+        <mat-menu #menu1="matMenu">
+            <button mat-menu-item>
+                <mat-icon>emoji_events</mat-icon>
+                <span>Welcome to WawUp!</span>
+            </button>
+            <button mat-menu-item>
+                <mat-icon>event</mat-icon>
+                <span>Your event 'Koncert' was published!</span>
+            </button>
+        </mat-menu>
+
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Profile">
+            <mat-icon>person</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+                <mat-icon>settings</mat-icon>
+                <span>Profile settings</span>
+            </button>
+        </mat-menu>
+    </span>
+</mat-toolbar>

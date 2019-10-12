@@ -42,5 +42,6 @@ export class EventCreatorDialogComponent implements OnInit {
   saveEvent(){
     console.log(this.mainInformation.get('name').value)
   }
+
   
 }

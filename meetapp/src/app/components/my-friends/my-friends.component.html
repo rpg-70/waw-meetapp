@@ -1,6 +1,13 @@
-<div fxLayout="column" fxLayoutGap="32px">
-    <app-card>Pioter</app-card>
-    <app-card></app-card>
-    <app-card></app-card>
+<div fxLayout="row wrap" fxLayoutGap="2rem" fxLayoutAlign="flex-start" class="my-friends-container">
+    <div *ngFor="let friend of myFriends">
+        <mat-card class="friend-card">
+            <mat-card-header>
+                <div mat-card-avatar class="friend-image"></div>
+                <mat-card-title>{{friend.name}}</mat-card-title>
+                <mat-card-subtitle>{{friend.surname}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src={{friend.profilePhoto}}>
+        </mat-card>           
+    </div>
  </div>
   

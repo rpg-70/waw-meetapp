@@ -7,11 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyFriendsComponent implements OnInit {
 
-  tiles = [
-    {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
-    {text: 'Two', cols: 1, rows: 2, color: 'lightblue'},
-    {text: 'Three', cols: 1, rows: 1, color: 'lightblue'},
-    {text: 'Four', cols: 2, rows: 1, color: 'lightblue'},
+  myFriends = [
+    {name: 'Piter',surname: 'Cokonut Team',profilePhoto: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
+    {name: 'Ania',surname: 'Cokonut Team',profilePhoto: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
+    {name: 'Paweł',surname: 'Cokonut Team',profilePhoto: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
+    {name: 'Karol',surname: 'Cokonut Team',profilePhoto: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
+    {name: 'Nadia',surname: 'Cokonut Team',profilePhoto: 'https://material.angular.io/assets/img/examples/shiba2.jpg'}
   ];
 
   constructor() { }

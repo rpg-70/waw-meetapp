@@ -10,6 +10,7 @@ import { MyFriendsComponent } from './components/my-friends/my-friends.component
 import { MyEventsComponent } from './components/my-events/my-events.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card'; 
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSliderModule,
-    MatGridListModule
+    MatGridListModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

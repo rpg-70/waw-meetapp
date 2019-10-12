@@ -1,42 +1,44 @@
-<div class="w3-margin"><h2>My events:</h2></div>
-<div fxLayout="row wrap" fxLayoutGap="2rem" fxLayoutAlign="flex-start" class="my-events-container">
-        <div *ngFor="let myEvent of myEvents">
-            <mat-card class="event-card">
-                <mat-card-header>
-                    <!-- <div mat-card-avatar class="friend-image"></div> -->
-                    <mat-card-title>{{myEvent.name}}</mat-card-title>
-                    <mat-card-subtitle>{{myEvent.surname}}</mat-card-subtitle>
-                </mat-card-header>
-                <mat-card-content  routerLink = "/event">
-                    <p>
-                        {{myEvent.description}}
-                    </p>
-                </mat-card-content>
-                <img mat-card-image src={{myEvent.photo}}>
-            </mat-card>           
-        </div>
-     </div>
-     <mat-card>
-            Main Theme:
-            <button mat-raised-button color="primary">
-              Primary
-            </button>
-            <button mat-raised-button color="accent">
-              Accent
-            </button>
-            <button mat-raised-button color="warn">
-              Warning
-            </button>
-          </mat-card>
-     <mat-card class="alternate-theme">
-            Alternate Theme:
-            <button mat-raised-button color="primary">
-              Primary
-            </button>
-            <button mat-raised-button color="accent">
-              Accent
-            </button>
-            <button mat-raised-button color="warn">
-              Warning
-            </button>
-          </mat-card>
+<mat-card class="w3-margin">
+  <h2>My events:</h2>
+  <div fxLayout="row wrap" fxLayoutGap="2rem" fxLayoutAlign="flex-start" class="my-events-container">
+    <div *ngFor="let myEvent of myEvents">
+      <mat-card class="event-card">
+        <mat-card-header>
+          <!-- <div mat-card-avatar class="friend-image"></div> -->
+          <mat-card-title>{{myEvent.name}}</mat-card-title>
+          <mat-card-subtitle>{{myEvent.surname}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content routerLink="/event">
+          <p>
+            {{myEvent.description}}
+          </p>
+        </mat-card-content>
+        <img mat-card-image src={{myEvent.photo}}>
+      </mat-card>
+    </div>
+  </div>
+  <mat-card>
+    Main Theme:
+    <button mat-raised-button color="primary">
+      Primary
+    </button>
+    <button mat-raised-button color="accent">
+      Accent
+    </button>
+    <button mat-raised-button color="warn">
+      Warning
+    </button>
+  </mat-card>
+  <mat-card class="alternate-theme">
+    Alternate Theme:
+    <button mat-raised-button color="primary">
+      Primary
+    </button>
+    <button mat-raised-button color="accent">
+      Accent
+    </button>
+    <button mat-raised-button color="warn">
+      Warning
+    </button>
+  </mat-card>
+</mat-card>

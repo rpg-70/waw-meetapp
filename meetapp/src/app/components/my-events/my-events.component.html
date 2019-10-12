@@ -1,3 +1,4 @@
+<div class="w3-margin"><h2>My events:</h2></div>
 <div fxLayout="row wrap" fxLayoutGap="2rem" fxLayoutAlign="flex-start" class="my-events-container">
         <div *ngFor="let myEvent of myEvents">
             <mat-card class="event-card" (click)="doStuff()">
@@ -15,3 +16,27 @@
             </mat-card>           
         </div>
      </div>
+     <mat-card>
+            Main Theme:
+            <button mat-raised-button color="primary">
+              Primary
+            </button>
+            <button mat-raised-button color="accent">
+              Accent
+            </button>
+            <button mat-raised-button color="warn">
+              Warning
+            </button>
+          </mat-card>
+     <mat-card class="alternate-theme">
+            Alternate Theme:
+            <button mat-raised-button color="primary">
+              Primary
+            </button>
+            <button mat-raised-button color="accent">
+              Accent
+            </button>
+            <button mat-raised-button color="warn">
+              Warning
+            </button>
+          </mat-card>

@@ -8,5 +8,20 @@
             </button>
         </span>
     </mat-toolbar>
-    <agm-map [latitude]="52" [longitude]="21"></agm-map>
+  <agm-map #gm [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+  <div *ngFor="let item of data">
+    <agm-marker
+      [latitude]="item.location.lat"
+      [longitude]="item.location.lng"
+      [iconUrl]="{url: item.img, scaledSize: {width: 30, height: 30}}"
+      [label]="item.name"
+      (mouseOver)="onMouseOver(infoWindow,gm)">
+      <agm-info-window [disableAutoPan]="false" #infoWindow>
+        <div>
+          {{item.name}}
+        </div>
+      </agm-info-window>
+    </agm-marker>
+  </div>
+  </agm-map>
 </mat-card>

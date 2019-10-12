@@ -8,11 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class MyFriendsComponent implements OnInit {
 
   myFriends = [
-    {name: 'Piter',surname: 'Cokonut Team',profilePhoto: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
-    {name: 'Ania',surname: 'Cokonut Team',profilePhoto: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
-    {name: 'Paweł',surname: 'Cokonut Team',profilePhoto: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
-    {name: 'Karol',surname: 'Cokonut Team',profilePhoto: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
-    {name: 'Nadia',surname: 'Cokonut Team',profilePhoto: 'https://material.angular.io/assets/img/examples/shiba2.jpg'}
+    {name: 'Piter Guziorski',location: 'Bezdomny',profilePhoto: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
+    {name: 'Ania Drabik',location: 'Szczęśliwice',profilePhoto: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
+    {name: 'Paweł Bąkiewicz',location: 'Szczęśliwice',profilePhoto: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
+    {name: 'Karol Kowalczyk',location: 'Bemowo',profilePhoto: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
+    {name: 'Nadia Ruszkiewicz',location: 'Ursus, Skorosze',profilePhoto: 'https://material.angular.io/assets/img/examples/shiba2.jpg'}
   ];
 
   constructor() { }

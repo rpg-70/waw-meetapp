@@ -1,1 +1,17 @@
-<p>my-events works!</p>
+<div fxLayout="row wrap" fxLayoutGap="2rem" fxLayoutAlign="flex-start" class="my-events-container">
+        <div *ngFor="let myEvent of myEvents">
+            <mat-card class="event-card" (click)="doStuff()">
+                <mat-card-header>
+                    <!-- <div mat-card-avatar class="friend-image"></div> -->
+                    <mat-card-title>{{myEvent.name}}</mat-card-title>
+                    <mat-card-subtitle>{{myEvent.surname}}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content  routerLink = "/event">
+                    <p>
+                        {{myEvent.description}}
+                    </p>
+                </mat-card-content>
+                <img mat-card-image src={{myEvent.photo}}>
+            </mat-card>           
+        </div>
+     </div>

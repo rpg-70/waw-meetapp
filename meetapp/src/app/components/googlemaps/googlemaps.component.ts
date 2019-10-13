@@ -30,9 +30,6 @@ export class GooglemapsComponent implements OnInit {
 
   getData() {
     return this.http.get<any>(this.distanceServiceUrl, {
-      headers: new HttpHeaders({
-        'Access-Control-Allow-Origin' : '*'
-      }),
       observe: 'response'}).toPromise().then(response => {
         return response;
     });

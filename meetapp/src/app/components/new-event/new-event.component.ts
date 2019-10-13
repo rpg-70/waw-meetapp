@@ -58,6 +58,7 @@ export class NewEventComponent implements OnInit {
 
   showUserPlaces() {
     this.showPlaces = true
+    this.chosenCategory = this.chosenCategory.replace(" ","_")
     localStorage.setItem("chosenCategory",this.chosenCategory)
     this.getUserPlaces(this.chosenCategory).then(response => {
       this.places = response.body.places;

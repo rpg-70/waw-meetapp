@@ -19,6 +19,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { GooglemapsComponent } from './components/googlemaps/googlemaps.component';
 import { AgmCoreModule } from '@agm/core';
 import {HttpClientModule} from '@angular/common/http';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 import { EventCreatorDialogComponent } from './components/events-accelerator/event-creator-dialog/event-creator-dialog.component';
 import { MatDialogModule, MatStepperModule, MatFormFieldModule } from '@angular/material';
@@ -26,6 +27,7 @@ import { CdkStepperModule } from '@angular/cdk/stepper';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { NewEventComponent } from './components/new-event/new-event.component';
+import { TripPlansComponent } from './components/trip-plans/trip-plans.component';
 
 
 @NgModule({
@@ -39,7 +41,8 @@ import { NewEventComponent } from './components/new-event/new-event.component';
     MyEventsComponent,
     GooglemapsComponent,
     MainPageComponent,
-    NewEventComponent
+    NewEventComponent,
+    TripPlansComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +66,8 @@ import { NewEventComponent } from './components/new-event/new-event.component';
     MatStepperModule,
     FormsModule,
     ReactiveFormsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatExpansionModule
 
   ],
   providers: [],

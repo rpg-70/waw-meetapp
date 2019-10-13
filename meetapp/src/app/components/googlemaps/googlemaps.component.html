@@ -8,7 +8,9 @@
             </button>
         </span>
     </mat-toolbar>
-    <agm-map #gm [latitude]="lat" [longitude]="lng" [zoom]="zoom" [clickableIcons]="false">
+    <agm-map #gm [latitude]="lat" [longitude]="lng" [zoom]="zoom"
+             [clickableIcons]="false"
+             [styles]="mapStyle">
         <div *ngFor="let item of data.users">
             <agm-marker
                     [latitude]="item.location.lat"

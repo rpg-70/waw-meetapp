@@ -44,6 +44,6 @@ export class MyEventsComponent implements OnInit {
   }
 
   updateEvents() {
-
+    // localStorage.getItem()
   }
 }

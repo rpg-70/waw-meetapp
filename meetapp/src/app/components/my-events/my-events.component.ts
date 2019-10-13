@@ -40,6 +40,10 @@ export class MyEventsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.updateEvents();
   }
 
+  updateEvents() {
+
+  }
 }

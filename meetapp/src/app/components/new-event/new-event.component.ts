@@ -42,38 +42,40 @@ export class NewEventComponent implements OnInit {
       discoverLocation: new FormControl(null)
     });
   }
-  saveEvent() {
+  saveEvent(){
     localStorage.setItem('new-event-main-info', JSON.stringify(this.mainInformation.value));
     localStorage.setItem('new-event-participants', JSON.stringify(this.chooseParticipants.value));
     localStorage.setItem('new-event-location', JSON.stringify(this.selectLocation.value));
   }
 
   showUserPlaces() {
-    this.showPlaces = true;
-    this.http.get('https://wawacode.herokuapp.com/distance/kawiarnia/', { observe: 'response' }).toPromise()
-      .then(
-        response => {
-          this.places = response.body.places;
-          console.log("booody", response.body, "users", this.users)
-          if (response.status === 200) {
-            this.users = response.body
-          }
-        });
-
+    this.showPlaces = true
+    this.getUserPlaces().then(response => {
+      this.places = response.body.places;
+    });
+  
   }
+  getUserPlaces() {
+    return this.http.get<any>('https://wawacode.herokuapp.com/distance/kawiarnia/', {
+      observe: 'response'}).toPromise().then(response => {
+        return response;
+    });
+  }
+
   getUsers() {
     console.log("wha")
 
     this.http.get(this.usersUrl, { observe: 'response' }).toPromise()
-      .then(
-        response => {
-          this.users = response.body
-          console.log("booody", response.body, "users", this.users)
-          if (response.status === 200) {
-            this.users = response.body
-          }
-        });
+          .then(
+              response => {
+                this.users = response.body
+                console.log("booody",response.body,"users",this.users)
+                  if (response.status === 200) {
+                      this.users = response.body
+                  }
+              });
   }
+
 
   goBackHome() {
     this.router.navigate(['/']);

@@ -47,6 +47,10 @@
                 </mat-step>
                 <mat-step [stepControl]="locationInformation">
                     <div style="padding: 1rem;">
+                        <div>
+                            <input matInput placeholder="Type in category.." [(ngModel)]="chosenCategory"
+                                class="w3-input dialog-input">
+                        </div>
                         <button mat-button class="call-to-action" (click)="showUserPlaces()">
                             <mat-icon>room</mat-icon>
                             <span>
@@ -55,7 +59,6 @@
                         </button>
                         <div *ngIf="showPlaces">
                             <div *ngFor="let place of places" class="w3-margin">
-
                                 <mat-accordion>
                                     <mat-expansion-panel (opened)="panelOpenState = true"
                                         (closed)="panelOpenState = false" class="w3-padding">
@@ -78,9 +81,6 @@
                                                 <mat-icon class="w3-small">access_time</mat-icon>{{userVal.time}}
                                                 <mat-icon class="w3-small">timeline</mat-icon>{{userVal.distance}}
                                             </span>
-
-
-
                                         </div>
                                     </mat-expansion-panel>
                                 </mat-accordion>

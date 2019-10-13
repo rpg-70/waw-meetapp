@@ -16,6 +16,7 @@ export class NewEventComponent implements OnInit {
   showPlaces: boolean = false;
   showFriendsInPlace: boolean = false;
   places
+  chosenCategory: string;
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -52,7 +53,7 @@ export class NewEventComponent implements OnInit {
 
   showUserPlaces() {
     this.showPlaces = true
-    this.getUserPlaces().then(response => {
+    this.getUserPlaces(this.chosenCategory).then(response => {
       this.places = response.body.places;
     });
 
@@ -60,8 +61,8 @@ export class NewEventComponent implements OnInit {
   showFriendsForPlace() {
     this.showFriendsInPlace = true
   }
-  getUserPlaces() {
-    return this.http.get<any>('https://wawacode.herokuapp.com/distance/kawiarnia/', {
+  getUserPlaces(category) {
+    return this.http.get<any>('https://wawacode.herokuapp.com/distance/' + category, {
       observe: 'response'
     }).toPromise().then(response => {
       return response;

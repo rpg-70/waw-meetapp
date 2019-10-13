@@ -47,7 +47,7 @@
                 </mat-step>
                 <mat-step [stepControl]="locationInformation">
                     <div style="padding: 1rem;">
-                        <button mat-button class="call-to-action w3-large w3-padding" (click)="showUserPlaces()">
+                        <button mat-button class="call-to-action" (click)="showUserPlaces()">
                             <mat-icon>room</mat-icon>
                             <span>
                                 Discover places!
@@ -76,10 +76,10 @@
                             <label>Time</label>
                             <input matInput placeholder="HH:MM" formContrlNoame="time" class="w3-input">
                         </div>
-                        <div class="w3-margin-top">
+                        <!-- <div class="w3-margin-top">
                             <label>Location</label>
                             <input matInput placeholder="Set Your own.." formControlName="ownLocation" class="w3-input">
-                        </div>
+                        </div> -->
                     </form>
 
 

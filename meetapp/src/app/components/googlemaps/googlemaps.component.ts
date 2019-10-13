@@ -8,6 +8,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 })
 export class GooglemapsComponent implements OnInit {
   @Input() data: any;
+  @Input() users: any;
 
   lat = 52.232222;
   lng = 21.008333;

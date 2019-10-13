@@ -72,7 +72,7 @@ export class NewEventComponent implements OnInit {
     this.showFriendsInPlace = true
   }
   getUserPlaces(category) {
-    return this.http.get<any>('https://wawacode.herokuapp.com/distance/' + category, {
+    return this.http.get<any>('https://wawacode.herokuapp.com/distance/' + category + '?user_id=' + this.participants.join(','), {
       observe: 'response'
     }).toPromise().then(response => {
       return response;
@@ -92,5 +92,16 @@ export class NewEventComponent implements OnInit {
 
   goBackHome() {
     this.router.navigate(['/']);
+  }
+
+  participants = [];
+    addNewParticipant(userId) {
+        if(this.participants.includes(userId) == false) {
+            this.participants.push(userId);
+        } else {
+            var index = this.participants.indexOf(userId);
+            if (index !== -1) this.participants.splice(index, 1);
+        }
+      return this.participants
   }
 }

@@ -35,7 +35,7 @@
                         </div>
                         <div *ngFor="let friend of users" style="display:inline-flex;text-align: center;">
                             <div style="padding: 1rem;">
-                                <img src="{{friend.img}}" class="friend-photo">
+                                <img src="{{friend.img}}" class="friend-photo" (click)="addNewParticipant(friend.id_user)">
                                 <span class="friend-name">{{friend.name}}</span>
                             </div>
                         </div>
@@ -58,7 +58,7 @@
                             </span>
                         </button>
                         <div *ngIf="showPlaces">
-                            <app-googlemaps [data]="allData"></app-googlemaps>
+                            <app-googlemaps [data]="allData" [users]="participants"></app-googlemaps>
                             <div *ngFor="let place of places" class="w3-margin">
                                 <mat-accordion>
                                     <mat-expansion-panel (opened)="panelOpenState = true"

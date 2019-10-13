@@ -8,20 +8,50 @@
             </button>
         </span>
     </mat-toolbar>
-  <agm-map #gm [latitude]="lat" [longitude]="lng" [zoom]="zoom">
-  <div *ngFor="let item of data">
-    <agm-marker
-      [latitude]="item.location.lat"
-      [longitude]="item.location.lng"
-      [iconUrl]="{url: item.img, scaledSize: {width: 30, height: 30}}"
-      [label]="item.name"
-      (mouseOver)="onMouseOver(infoWindow,gm)">
-      <agm-info-window [disableAutoPan]="false" #infoWindow>
-        <div>
-          {{item.name}}
+    <agm-map #gm [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+        <div *ngFor="let item of data.users">
+            <agm-marker
+                    [latitude]="item.location.lat"
+                    [longitude]="item.location.lng"
+                    [iconUrl]="{url: item.img, scaledSize: {width: 30, height: 30}}"
+                    (mouseOver)="onMouseOver(infoWindowUser,gm)">
+                <agm-info-window [disableAutoPan]="false" #infoWindowUser>
+                    <div>
+                        {{item.name}}
+                    </div>
+                </agm-info-window>
+            </agm-marker>
         </div>
-      </agm-info-window>
-    </agm-marker>
-  </div>
-  </agm-map>
+        <div *ngFor="let place of data.places">
+            <agm-marker
+                [latitude]="place.place_lcation.lat"
+                [longitude]="place.place_lcation.lng"
+                [iconUrl]="{url: place.icon, scaledSize: {width: 25, height: 25}}"
+                (mouseOver)="onMouseOver(infoWindowPlace,gm)">
+                <agm-info-window [disableAutoPan]="false" #infoWindowPlace>
+                    <div>
+                        <b>{{place.place_name}}</b><br>
+                        {{place.address}}<br>
+                        Ocena: {{place.rating}}<br>
+                        Sredni dystans: {{place.stdDev.distance}}<br>
+                        Sredni czas: {{place.stdDev.time}}<br>
+                    </div>
+                    <table style="width: 100%">
+                        <tr>
+                            <th></th>
+                            <th>Imię</th>
+                            <th>Dystans</th>
+                            <th>Czas</th>
+                        </tr>
+                        <tr *ngFor="let userValue of place.userVals">
+                            <td><img style="height:50px;" src="{{data.users[userValue.user_id].img}}"/></td>
+                            <td>{{data.users[userValue.user_id].name}}</td>
+                            <td>{{userValue.distance}}</td>
+                            <td>{{userValue.time}}<br></td>
+                        </tr>
+                    </table>
+                </agm-info-window>
+            </agm-marker>
+        </div>
+    </agm-map>
 </mat-card>

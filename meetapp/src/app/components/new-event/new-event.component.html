@@ -58,6 +58,7 @@
                             </span>
                         </button>
                         <div *ngIf="showPlaces">
+                            <app-googlemaps [data]="allData"></app-googlemaps>
                             <div *ngFor="let place of places" class="w3-margin">
                                 <mat-accordion>
                                     <mat-expansion-panel (opened)="panelOpenState = true"

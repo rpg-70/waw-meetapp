@@ -18,6 +18,7 @@ export class NewEventComponent implements OnInit {
   places
   chosenCategory: string;
   myEvents = [];
+  allData;
   constructor(
     private _formBuilder: FormBuilder,
     private http: HttpClient,
@@ -62,6 +63,7 @@ export class NewEventComponent implements OnInit {
     localStorage.setItem("chosenCategory",this.chosenCategory)
     this.getUserPlaces(this.chosenCategory).then(response => {
       this.places = response.body.places;
+      this.allData = response.body;
     });
 
   }

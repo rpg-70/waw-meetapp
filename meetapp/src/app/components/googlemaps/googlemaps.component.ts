@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Component({
@@ -7,11 +7,13 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
   styleUrls: ['./googlemaps.component.scss']
 })
 export class GooglemapsComponent implements OnInit {
+  @Input() data: any;
+
   lat = 52.232222;
   lng = 21.008333;
   zoom = 12;
-  distanceServiceUrl = 'https://wawacode.herokuapp.com/distance/restauracja';
-  data = null;
+  distanceServiceUrl = 'https://wawacode.herokuapp.com/distance/'
+      + localStorage.getItem('chosenCategory');
   mapStyle = [
       {
           "featureType": "administrative.land_parcel",
@@ -70,9 +72,9 @@ export class GooglemapsComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.getData().then(response => {
+    /*this.getData().then(response => {
       this.data = response.body;
-    });
+    });*/
   }
 
   onMouseOver(infoWindow, gm) {

@@ -22,6 +22,8 @@ export class EventCreatorDialogComponent implements OnInit {
 
   ngOnInit() {
     this.getUsers();
+    
+    console.log("PLACE",this.places)
     this.mainInformation = this._formBuilder.group({
       name: new FormControl(null),
       description: new FormControl(null),
@@ -32,10 +34,10 @@ export class EventCreatorDialogComponent implements OnInit {
       searchFriends: new FormControl(null)
     });
     this.selectLocation = this._formBuilder.group({
-      date: new FormGroup(null),
-      time: new FormGroup(null),
-      ownLocation: new FormGroup(null),
-      discoverLocation: new FormGroup(null)
+      date: new FormControl(null),
+      time: new FormControl(null),
+      ownLocation: new FormControl(null),
+      discoverLocation: new FormControl(null)
     });
     
   }
@@ -47,17 +49,18 @@ export class EventCreatorDialogComponent implements OnInit {
 
   showUserPlaces() {
     this.showPlaces = true
-    this.http.get('https://wawacode.herokuapp.com/distance/kawiarnia/', { observe: 'response' }).toPromise()
-    .then(
-        response => {
-          this.places = response.body
-          console.log("booody",response.body,"users",this.users)
-            if (response.status === 200) {
-                this.users = response.body
-            }
-        });
-    
+    this.getUserPlaces().then(response => {
+      this.places = response.body.places;
+    });
+  
   }
+  getUserPlaces() {
+    return this.http.get<any>('https://wawacode.herokuapp.com/distance/kawiarnia/', {
+      observe: 'response'}).toPromise().then(response => {
+        return response;
+    });
+  }
+  
   getUsers() {
     console.log("wha")
 

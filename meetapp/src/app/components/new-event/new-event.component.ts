@@ -16,7 +16,7 @@ export class NewEventComponent implements OnInit {
   showPlaces: boolean = false;
   showFriendsInPlace: boolean = false;
   places
-
+  myEvents = [];
   constructor(
     private _formBuilder: FormBuilder,
     private http: HttpClient,
@@ -45,7 +45,12 @@ export class NewEventComponent implements OnInit {
     });
   }
   saveEvent() {
-    localStorage.setItem('new-event-main-info', JSON.stringify(this.mainInformation.value));
+    if(localStorage.getItem('new-event-main-info')) {
+      this.myEvents = JSON.parse(localStorage.getItem('new-event-main-info'));
+    }
+
+    this.myEvents.push(JSON.stringify(this.mainInformation.value));
+    localStorage.setItem('my-events', JSON.stringify(this.myEvents));
     localStorage.setItem('new-event-participants', JSON.stringify(this.participantsInformation.value));
     localStorage.setItem('new-event-location', JSON.stringify(this.locationInformation.value));
   }

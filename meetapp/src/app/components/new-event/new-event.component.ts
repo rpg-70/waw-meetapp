@@ -17,6 +17,7 @@ export class NewEventComponent implements OnInit {
   showFriendsInPlace: boolean = false;
   places
   chosenCategory: string;
+  panelOpenState;
   myEvents = [];
   allData;
   constructor(

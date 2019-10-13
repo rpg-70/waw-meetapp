@@ -1,0 +1,96 @@
+<div class="w3-row wawup-content">
+    <div class="w3-content">
+        <mat-card class="w3-margin main-card">
+
+            <mat-toolbar class="nobg">
+                <span>Create new event</span>
+                <span class="example-fill-remaining-space"></span>
+                <span>
+                    <button mat-icon-button aria-label="Add friends" (click)="goBackHome()">
+                        <mat-icon>clear</mat-icon>
+                    </button>
+
+                </span>
+            </mat-toolbar>
+
+            <mat-vertical-stepper [linear]="isLinear" #stepper>
+                <mat-step [stepControl]="mainInformation">
+                    <form [formGroup]="mainInformation">
+                        <ng-template matStepLabel>Main information about Your event</ng-template>
+                        <input matInput placeholder="Name of the event.." formControlName="name"
+                            class="w3-input dialog-input">
+                        <textarea matInput placeholder="Description.." formControlName="description"
+                            class="w3-input dialog-input"></textarea>
+                        <div>
+                            <button mat-button matStepperNext class="call-to-action">Next</button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step [stepControl]="participantsInformation">
+                    <form [formGroup]="participantsInformation">
+                        <ng-template matStepLabel>Choose participants</ng-template>
+                        <div>
+                            <input matInput placeholder="Search friends.." formControlName="searchFriends"
+                                class="w3-input">
+                        </div>
+                        <div *ngFor="let friend of users" style="display:inline-flex;text-align: center;">
+                            <div style="padding: 1rem;">
+                                <img src="{{friend.img}}" class="friend-photo">
+                                <span class="friend-name">{{friend.name}}</span>
+                            </div>
+                        </div>
+                        <div>
+                            <button mat-button matStepperPrevious class="w3-margin-right">Back</button>
+                            <button mat-button matStepperNext class="call-to-action">Next</button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step [stepControl]="locationInformation">
+                        <div style="padding: 1rem;">
+                                <button mat-button class="call-to-action w3-large w3-padding" (click)="showUserPlaces()">
+                                    <mat-icon>room</mat-icon>
+                                    <span>
+                                        Discover places!
+                                    </span>
+                                </button>
+                                <div *ngIf="showPlaces">
+                                    <div *ngFor="let place of places" style="display:inline-flex;text-align: center;">
+                                        <div style="padding: 1rem;">
+                                            <img src="{{place.img}}" class="friend-photo">
+                                        </div>
+                                        <!-- <div style="padding-top:20px;">
+                                            <span class="friend-name">{{friend.name}}</span>
+                                            <span>places.places.userVals</span>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                    <form [formGroup]="locationInformation">
+                        <ng-template matStepLabel>Select location & time</ng-template>
+                        <div class="w3-margin-top">
+                            <label>Date</label>
+                            <input matInput placeholder="DD:MM" formControlName="date" class="w3-input">
+                        </div>
+                        <div class="w3-margin-top">
+                            <label>Time</label>
+                            <input matInput placeholder="HH:MM" formContrlNoame="time" class="w3-input">
+                        </div>
+                        <div class="w3-margin-top">
+                            <label>Location</label>
+                            <input matInput placeholder="Set Your own.." formControlName="ownLocation" class="w3-input">
+                        </div>
+                    </form>
+                   
+
+
+                    <div class="w3-margin-top">
+                        <button mat-button matStepperPrevious class="w3-margin-right">Back</button>
+                        <button mat-button matStepperNext (click)="saveEvent()" class="call-to-action">Finish!</button>
+                    </div>
+                </mat-step>
+
+            </mat-vertical-stepper>
+
+        </mat-card>
+    </div>
+</div>

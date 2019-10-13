@@ -8,10 +8,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   styleUrls: ['./event-creator-dialog.component.scss']
 })
 export class EventCreatorDialogComponent implements OnInit {
-  isLinear = false;
   mainInformation: FormGroup;
   chooseParticipants: FormGroup;
   selectLocation: FormGroup;
+  isLinear = false;
   location:string;
   usersUrl = 'https://wawacode.herokuapp.com/users/';
   users

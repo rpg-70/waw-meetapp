@@ -25,6 +25,7 @@ import { MatDialogModule, MatStepperModule, MatFormFieldModule } from '@angular/
 import { CdkStepperModule } from '@angular/cdk/stepper';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainPageComponent } from './components/main-page/main-page.component';
+import { NewEventComponent } from './components/new-event/new-event.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { MainPageComponent } from './components/main-page/main-page.component';
     EventCreatorDialogComponent,
     MyEventsComponent,
     GooglemapsComponent,
-    MainPageComponent
+    MainPageComponent,
+    NewEventComponent
   ],
   imports: [
     BrowserModule,

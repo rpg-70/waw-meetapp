@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Component({
   selector: 'app-googlemaps',
@@ -16,7 +16,7 @@ export class GooglemapsComponent implements OnInit {
 
   ngOnInit() {
     this.getData().then(response => {
-      this.data = response.body.users;
+      this.data = response.body;
     });
   }
 

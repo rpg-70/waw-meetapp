@@ -22,7 +22,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {MatExpansionModule} from '@angular/material/expansion';
 
 import { EventCreatorDialogComponent } from './components/events-accelerator/event-creator-dialog/event-creator-dialog.component';
-import { MatDialogModule, MatStepperModule, MatFormFieldModule } from '@angular/material';
+import { MatDialogModule, MatStepperModule, MatFormFieldModule, MatDividerModule } from '@angular/material';
 import { CdkStepperModule } from '@angular/cdk/stepper';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainPageComponent } from './components/main-page/main-page.component';
@@ -67,7 +67,8 @@ import { TripPlansComponent } from './components/trip-plans/trip-plans.component
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatDividerModule
 
   ],
   providers: [],

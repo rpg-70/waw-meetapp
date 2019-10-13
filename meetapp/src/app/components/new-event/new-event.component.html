@@ -54,29 +54,37 @@
                             </span>
                         </button>
                         <div *ngIf="showPlaces">
-                            <div *ngFor="let place of places" style="display:inline-flex;text-align: center;">
-                                <mat-card class="w3-margin main-card">
-                                    <mat-accordion>
-                                        <mat-expansion-panel (opened)="panelOpenState = true"
-                                            (closed)="panelOpenState = false">
-                                            <mat-expansion-panel-header>
-                                                <mat-panel-title>
-                                                    <img src="{{place.icon}}" class="place-icon">
-                                                    <span>{{place.place_name}}</span>
-                                                </mat-panel-title>
-                                                <mat-panel-description>
-                                                    <span>{{place.rating}}</span>
-                                                    <span>{{place.address}}</span>
-                                                </mat-panel-description>
-                                            </mat-expansion-panel-header>
-                                           
-                                                    <div *ngFor="let userVal of place.userVals">
-                                                        {{userVal.distance}}
-                                                        {{userVal.time}}
-                                                    </div>
-                                        </mat-expansion-panel>
-                                    </mat-accordion>
-                                </mat-card>
+                            <div *ngFor="let place of places" class="w3-margin">
+
+                                <mat-accordion>
+                                    <mat-expansion-panel (opened)="panelOpenState = true"
+                                        (closed)="panelOpenState = false" class="w3-padding">
+                                        <mat-expansion-panel-header class="main-card">
+                                            <mat-panel-title>
+                                                <img src="{{place.icon}}" class="place-icon">
+                                                <span class="w3-padding">{{place.place_name}}</span>
+                                            </mat-panel-title>
+                                            <mat-panel-description>
+                                                <span class="w3-padding">{{place.rating}} {{place.address}}</span>
+                                            </mat-panel-description>
+                                        </mat-expansion-panel-header>
+                                        <hr noshade/>
+                                        <div *ngFor="let userVal of place.userVals">
+                                            <img class="w3-circle w3-margin-bottom" src="{{userVal.img}}" width="40">
+                                            <span class="w3-large w3-margin-left">
+                                                {{userVal.name}}
+                                            </span>
+                                            <span class="w3-padding w3-right w3-large">
+                                                <mat-icon class="w3-small">access_time</mat-icon>{{userVal.time}}
+                                                <mat-icon class="w3-small">timeline</mat-icon>{{userVal.distance}}
+                                            </span>
+
+
+
+                                        </div>
+                                    </mat-expansion-panel>
+                                </mat-accordion>
+
                             </div>
                         </div>
                     </div>

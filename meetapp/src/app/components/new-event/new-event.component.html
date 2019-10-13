@@ -55,14 +55,28 @@
                         </button>
                         <div *ngIf="showPlaces">
                             <div *ngFor="let place of places" style="display:inline-flex;text-align: center;">
-                                <div style="padding: 1rem;">
-                                    <img src="{{place.icon}}" class="place-icon">
-                                </div>
-                                <div style="padding-top:20px;display:block">
-                                    <div class="friend-name">{{place.place_name}}</div>
-                                    <div>{{place.rating}}</div>
-                                    <div>{{place.address}}</div>
-                                </div>
+                                <mat-card class="w3-margin main-card">
+                                    <mat-accordion>
+                                        <mat-expansion-panel (opened)="panelOpenState = true"
+                                            (closed)="panelOpenState = false">
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>
+                                                    <img src="{{place.icon}}" class="place-icon">
+                                                    <span>{{place.place_name}}</span>
+                                                </mat-panel-title>
+                                                <mat-panel-description>
+                                                    <span>{{place.rating}}</span>
+                                                    <span>{{place.address}}</span>
+                                                </mat-panel-description>
+                                            </mat-expansion-panel-header>
+                                           
+                                                    <div *ngFor="let userVal of place.userVals">
+                                                        {{userVal.distance}}
+                                                        {{userVal.time}}
+                                                    </div>
+                                        </mat-expansion-panel>
+                                    </mat-accordion>
+                                </mat-card>
                             </div>
                         </div>
                     </div>

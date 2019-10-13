@@ -53,6 +53,7 @@ export class NewEventComponent implements OnInit {
 
   showUserPlaces() {
     this.showPlaces = true
+    localStorage.setItem("chosenCategory",this.chosenCategory)
     this.getUserPlaces(this.chosenCategory).then(response => {
       this.places = response.body.places;
     });
@@ -70,13 +71,10 @@ export class NewEventComponent implements OnInit {
   }
 
   getUsers() {
-    console.log("wha")
-
     this.http.get(this.usersUrl, { observe: 'response' }).toPromise()
       .then(
         response => {
           this.users = response.body
-          console.log("booody", response.body, "users", this.users)
           if (response.status === 200) {
             this.users = response.body
           }

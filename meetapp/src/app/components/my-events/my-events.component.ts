@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-events.component.scss']
 })
 export class MyEventsComponent implements OnInit {
+  newevent;
   myEvents = [
     {
       name: 'Classic movie night',
@@ -44,6 +45,13 @@ export class MyEventsComponent implements OnInit {
   }
 
   updateEvents() {
-    // localStorage.getItem()
+    console.log('dupa');
+    this.newevent = JSON.parse(localStorage.getItem("new-event-main-info"));
+    if(this.myEvents.includes(this.newevent.name)) {
+      console.log("Already there!");
+    } else {
+      this.newevent.photo = "https://picsum.photos/300/200";
+      this.myEvents.push(this.newevent);
+    }
   }
 }

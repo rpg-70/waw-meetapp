@@ -1,7 +1,7 @@
 <h1 mat-dialog-title>Create event</h1>
 <mat-dialog-content>
     <mat-vertical-stepper [linear]="isLinear" #stepper>
-        <mat-step [stepControl]="mainInformation">
+        <mat-step>
             <form [formGroup]="mainInformation">
                 <ng-template matStepLabel>Main information about Your event</ng-template>
                 <input matInput placeholder="Name of the event.." formControlName="name" class="w3-input dialog-input">
@@ -12,15 +12,15 @@
                 </div>
             </form>
         </mat-step>
-        <mat-step [stepControl]="chooseParticipants">
+        <mat-step>
             <form [formGroup]="chooseParticipants" style="display:block">
                 <ng-template matStepLabel>Choose participants</ng-template>
                 <div>
                     <input matInput placeholder="Search friends.." formControlName="searchFriends" class="w3-input">
                 </div>
-                <div *ngFor="let friend of myFriends" style="display:inline-flex;text-align: center;">
+                <div *ngFor="let friend of users" style="display:inline-flex;text-align: center;">
                     <div style="padding: 1rem;">
-                        <img src="{{friend.profilePhoto}}" class="friend-photo">
+                        <img src="{{friend.img}}" class="friend-photo">
                         <span class="friend-name">{{friend.name}}</span>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                 </div>
             </form>
         </mat-step>
-        <mat-step [stepControl]="selectLocation">
+        <mat-step>
             <form [formGroup]="selectLocation">
                 <ng-template matStepLabel>Select location & time</ng-template>
                 <div class="w3-margin-top">
@@ -44,14 +44,37 @@
                 <div class="w3-margin-top">
                     <label>Location</label>
                     <input matInput placeholder="Set Your own.." formControlName="ownLocation" class="w3-input">
-                    <input matInput placeholder="Discover places with WawUp" formControlName="discoverLocation"
-                        class="w3-input">
-                </div>
-                <div class="w3-margin-top">
-                    <button mat-button matStepperPrevious class="w3-margin-right">Back</button>
-                    <button mat-button matStepperNext class="call-to-action">Next</button>
                 </div>
             </form>
+            <div style="padding: 1rem;">
+                <button (click)="showUserPlaces()">"Discover places with WawUp"</button>
+                <div *ngIf="showPlaces">
+                    <div *ngFor="let place of places" style="display:inline-flex;text-align: center;">
+                        <div style="padding: 1rem;">
+                            <img src="{{places.users.img}}" class="friend-photo">
+                        </div>
+                        <div style="padding-top:20px;">
+                            <span class="friend-name">{{friend.name}}</span>
+                            <span>places.places.userVals</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="w3-margin-top">
+                <button mat-button matStepperPrevious class="w3-margin-right">Back</button>
+                <button mat-button matStepperNext class="call-to-action">Next</button>
+            </div>
+
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Done</ng-template>
+
+            <div class="w3-margin-top">
+                <button mat-button matStepperPrevious class="w3-margin-right">Back</button>
+                <button mat-button matStepperNext class="call-to-action">Create event</button>
+            </div>
         </mat-step>
     </mat-vertical-stepper>
 </mat-dialog-content>

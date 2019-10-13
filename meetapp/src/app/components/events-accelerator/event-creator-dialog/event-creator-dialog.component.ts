@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-event-creator-dialog',
@@ -12,17 +13,15 @@ export class EventCreatorDialogComponent implements OnInit {
   chooseParticipants: FormGroup;
   selectLocation: FormGroup;
   location:string;
+  usersUrl = 'https://wawacode.herokuapp.com/users/';
+  users
+  showPlaces:boolean=false
+  places
   
-  constructor(private _formBuilder: FormBuilder) {}
-  myFriends = [
-    {name: 'Heheszek',location: 'Bezdomny',profilePhoto: '../../../../assets/profile-photos/lukasz.jpg'},
-    {name: 'Sowa',location: 'Szczęśliwice',profilePhoto: '../../../../assets/profile-photos/sowa.jpg'},
-    {name: 'Ręka',location: 'Bemowo',profilePhoto: '../../../../assets/profile-photos/magda.jpg'},
-    {name: 'Bonkers',location: 'Szczęśliwice',profilePhoto: '../../../../assets/profile-photos/pawel.jpg'},
-    {name: 'Piter',location: 'Bezdomny',profilePhoto: '../../../../assets/profile-photos/piotr.jpg'},
-    {name: 'Nadia',location: 'Ursus, Skorosze',profilePhoto: '../../../../assets/profile-photos/nadia.jpg'}
-  ];
+  constructor(private _formBuilder: FormBuilder,private http: HttpClient) {}
+
   ngOnInit() {
+    this.getUsers();
     this.mainInformation = this._formBuilder.group({
       name: new FormControl(null),
       description: new FormControl(null),
@@ -38,6 +37,7 @@ export class EventCreatorDialogComponent implements OnInit {
       ownLocation: new FormGroup(null),
       discoverLocation: new FormGroup(null)
     });
+    
   }
   saveEvent(){
     localStorage.setItem('new-event-main-info', JSON.stringify(this.mainInformation.value));
@@ -45,5 +45,32 @@ export class EventCreatorDialogComponent implements OnInit {
     localStorage.setItem('new-event-location', JSON.stringify(this.selectLocation.value));
   }
 
-  
+  showUserPlaces() {
+    this.showPlaces = true
+    this.http.get('https://wawacode.herokuapp.com/distance/kawiarnia/', { observe: 'response' }).toPromise()
+    .then(
+        response => {
+          this.places = response.body
+          console.log("booody",response.body,"users",this.users)
+            if (response.status === 200) {
+                this.users = response.body
+            }
+        });
+    
+  }
+  getUsers() {
+    console.log("wha")
+
+    this.http.get(this.usersUrl, { observe: 'response' }).toPromise()
+          .then(
+              response => {
+                this.users = response.body
+                console.log("booody",response.body,"users",this.users)
+                  if (response.status === 200) {
+                      this.users = response.body
+                  }
+              });
+  }
+
+
 }

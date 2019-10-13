@@ -24,6 +24,7 @@ import { EventCreatorDialogComponent } from './components/events-accelerator/eve
 import { MatDialogModule, MatStepperModule, MatFormFieldModule } from '@angular/material';
 import { CdkStepperModule } from '@angular/cdk/stepper';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MainPageComponent } from './components/main-page/main-page.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MyEventsComponent,
     EventCreatorDialogComponent,
     MyEventsComponent,
-    GooglemapsComponent
+    GooglemapsComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,
